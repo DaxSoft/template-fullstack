@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+
+
+
+enum UserRole {
+  ADMIN
+  CLIENT
+  MODERATOR
+  DEVELOPER
+}
+
+
+
+
+
+model User {
+
+  
+  
+  
+
+  id        String   @id @default(uuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  
+  
+  
+
+  name            String
+  surname         String  @default("")
+  imageCover      String  @default("public/uploads/users/cover/default.png")
+  imageBackground String? 
+
+  
+  
+  
+
+  requireActiveAccount  Boolean @default(true) 
+  requireDefinePassword Boolean @default(false) 
+
+  
+  
+  
+
+  role                UserRole @default(CLIENT)
+  isBanned            Boolean  @default(false) 
+  isBannedToCommunity Boolean  @default(false) 
+
+
+  
+  
+  
+
+  tokenActiveAccount String? 
+  tokenNewPassword   String? 
+}

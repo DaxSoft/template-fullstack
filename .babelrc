@@ -1,0 +1,56 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "@babel/preset-typescript",
+        "next/babel"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "@/libraries": "./server/libraries",
+                    "@/app": "./server/app",
+                    "@/routes": "./server/routes",
+                    "@/data": "./server/data",
+                    "@/server": "./server",
+                    "@/jobs": "./server/jobs",
+                    "@/config": "./server/config",
+                    "@/tasks": "./server/tasks",
+                    "@/types": "./server/@types",
+                    "$/pages/*": "./pages",
+                    "$/client/*": "./client",
+                    "$/components/*": "./client/components",
+                    "$/data/*": "./client/data",
+                    "$/hooks/*": "./client/hooks",
+                    "$/lib/*": "./client/libraries",
+                    "$/styles/*": "./client/styles",
+                    "$/assets/*": "./client/assets",
+                    "$/controller/*": "./client/controller",
+                    "$/types/*": "./client/types"
+                }
+            }
+        ]
+    ],
+    "ignore": ["**/*.spec.ts"],
+    "env": {
+        "development": {
+            "presets": ["next/babel"]
+        },
+        "production": {
+            "presets": ["next/babel"]
+        },
+        "test": {
+            "presets": [
+                ["next/babel", { "preset-env": { "modules": "commonjs" } }]
+            ]
+        }
+    }
+}

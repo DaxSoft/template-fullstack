@@ -1,14 +1,20 @@
+import { UtilsTime } from '@/libraries/utils';
 import { EmailQueue } from './queues';
 
-export function InitEmailJobs() {
+export function InitQueues() {
     // EmailQueue.add(
-    //     'RegisterJob_EmailUserValidAccount',
-    //     {},
-    //     {
-    //         removeOnComplete: true,
-    //         priority: 2,
-    //         delay: 500,
-    //         attempts: 2,
-    //     }
-    // );
+    //       'Crawler',
+    //       {},
+    //       {
+    //           priority: 3,
+    //           repeat: {
+    //               every: UtilsTime.monthToMs(1),
+    //               prevMillis: 0,
+    //               count: 1,
+    //               limit: undefined,
+    //           },
+    //           attempts: 2,
+    //           delay: 0,
+    //       }
+    //   );
 }

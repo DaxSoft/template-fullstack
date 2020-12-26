@@ -1,1 +1,1 @@
-export * as JobEmail from './email';
+export * as RegistredJobEmail from './email';

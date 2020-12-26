@@ -1,4 +1,4 @@
-import { IBootstrap_Routes } from '@/routes/index';
+import { IBootstrap_Routes } from '@/types/routes';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { schema, IUser_Route_Login_SchemaBody } from './schema';
 import { parseJsonBody } from '@/libraries/utils/routes';

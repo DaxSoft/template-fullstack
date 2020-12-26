@@ -1,5 +1,5 @@
-import { IBootstrap_Routes } from '@/routes/index';
-import { EmailQueue } from '@/server/jobs/email';
+import { JobsEmail } from '@/server/jobs/email';
+import { IBootstrap_Routes } from '@/types/routes';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { schema, TRoute_SchemaQuerystring } from './schema';
 /*
@@ -22,11 +22,9 @@ export default function RouteUserLogin({
         handler: async function (request: FastifyRequest, reply: FastifyReply) {
             try {
                 const { email } = request.query as TRoute_SchemaQuerystring;
-                EmailQueue.add(
-                    'EmailTest',
-                    { email },
-                    { removeOnComplete: true }
-                );
+
+                JobsEmail.Test({ email });
+
                 return reply.send({ email: 'test' });
             } catch (error) {
                 console.log(error);

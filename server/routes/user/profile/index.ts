@@ -1,4 +1,4 @@
-import { IBootstrap_Routes } from '@/routes/index';
+import { IBootstrap_Routes } from '@/types/routes';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { schema } from './schema';
 import { User_Middleware_Token } from '@/app/user/middleware/token';

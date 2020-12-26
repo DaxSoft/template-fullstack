@@ -13,12 +13,12 @@ const nCbExec = (error, stdout, stderr) => {
 };
 
 exports.PrismaStudio = async () =>
-    exec('npx prisma sutdio --pewview-feature --experimental', nCbExec);
+    exec('prisma studio --pewview-feature', nCbExec);
 
 exports.PrismaGenerator = async () => exec('npx prisma generate', nCbExec);
 
 exports.PrismaSave = async () =>
-    exec('npx prisma migrate dev --preview-feature', nCbExec);
+    exec('prisma migrate dev --preview-feature', nCbExec);
 
 exports.PrismaDeploy = async () =>
-    exec('npx prisma migrate deploy --preview-feature', nCbExec);
+    exec('prisma migrate deploy --preview-feature', nCbExec);

@@ -1,7 +1,7 @@
-import { EmailQueue } from '@/jobs/email/queues';
 import { PrismaClient, User } from '@prisma/client';
 import { Encrypt_CryptSalt } from '@/libraries/utils/encrypt';
 import { nanoid } from 'nanoid';
+import { JobsEmail } from '@/server/jobs/email';
 
 /*
 :--------------------------------------------------------------------------
@@ -37,12 +37,7 @@ export async function User_Method_Create(
 
     // ! PASS ALERT TO SEND EMAIL
 
-    EmailQueue.add('EmailUser_ValidAccount', user, {
-        removeOnComplete: true,
-        priority: 2,
-        attempts: 2,
-        delay: 100,
-    });
+    JobsEmail.UserValidAccount(user);
 
     return user;
 }

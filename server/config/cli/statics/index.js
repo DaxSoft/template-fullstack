@@ -24,13 +24,8 @@ async function numberLines() {
     const server = await MainRoute.io().allFiles(
         MainRoute.plug('main', 'server')
     );
-    const client = await MainRoute.io().allFiles(
-        MainRoute.plug('main', 'client')
-    );
-    const pages = await MainRoute.io().allFiles(
-        MainRoute.plug('main', 'pages')
-    );
-    const collector = [...server, ...client, ...pages];
+
+    const collector = [...server];
     let count = 0;
 
     await Promise.allSettled(

@@ -18,6 +18,7 @@ import { QueueRunner } from './config/queue/setup';
 import { RedisConnection } from './config/redis/index';
 import { ConfigWebsocket } from './config/ws/index';
 import Bootstrap_Routes from './routes';
+import { StartPoint } from './app/bootstrap';
 
 /*
 :--------------------------------------------------------------------------
@@ -99,7 +100,7 @@ void (async function () {
     :--------------------------------------------------------------------------
     */
 
-    await QueueRunner();
+    await QueueRunner(fastify);
 
     /*
     :--------------------------------------------------------------------------
@@ -121,6 +122,19 @@ void (async function () {
     */
 
     await NextConfig(fastify, Prisma);
+
+    /*
+    :--------------------------------------------------------------------------
+    : Start Point
+    :--------------------------------------------------------------------------
+    */
+
+    await StartPoint({
+        fastify,
+        prisma: Prisma,
+        redis: RedisClient,
+        socket: SocketServer,
+    });
 
     /*
     :--------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import { IBootstrap_Routes } from '@/routes/index';
+import { IBootstrap_Routes } from '@/types/routes';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { Prisma } from '@prisma/client';
 import { schema, IUser_Route_Users_SchemaQuerystring } from './schema';

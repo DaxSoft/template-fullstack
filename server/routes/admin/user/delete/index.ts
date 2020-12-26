@@ -1,4 +1,4 @@
-import { IBootstrap_Routes } from '@/routes/index';
+import { IBootstrap_Routes } from '@/types/routes';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { schema, IRouteAdmin_UserDelete_SchemaBody } from './schema';
 import { User_Middleware_Admin } from '@/app/user/middleware/admin';
